@@ -6,7 +6,7 @@ import android.content.SharedPreferences
 private const val PREF_NAME = "preference_name"
 private const val SHARED_PREF_KEY = "shared_pref_key"
 private lateinit var prefs:SharedPreferences
-private lateinit var localValue
+private lateinit var localValue:String
 
 class Repository {
 
@@ -25,7 +25,7 @@ class Repository {
         editor.putString(SHARED_PREF_KEY, context.toString())
         editor.apply()
         localValue = context.toString()
-        return
+
     }
 
 

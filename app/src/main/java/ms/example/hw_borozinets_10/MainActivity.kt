@@ -8,7 +8,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.fragment.app.commit
 import androidx.fragment.app.replace
-private val repository = Repository()
+
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -24,5 +24,6 @@ class MainActivity : AppCompatActivity() {
             replace<FirstBlankFragment>(R.id.fragmentinactivity)
             addToBackStack(FirstBlankFragment::class.java.simpleName)
         }
+
     }
 }

@@ -11,7 +11,7 @@ import ms.example.hw_borozinets_10.databinding.FragmentFirstBlankBinding
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
-
+private val repository = Repository()
 /**
  * A simple [Fragment] subclass.
  * Use the [FirstBlankFragment.newInstance] factory method to
@@ -40,7 +40,11 @@ class FirstBlankFragment : Fragment() {
         // Inflate the layout for this fragment
         _binding = FragmentFirstBlankBinding.inflate(layoutInflater)
 
+
         binding.savebutton.setOnClickListener {
+          //  repository.saveText(binding.vvod.text.toString())
+
+            binding.textpole.text = binding.vvod.text.toString()
 
         }
 
