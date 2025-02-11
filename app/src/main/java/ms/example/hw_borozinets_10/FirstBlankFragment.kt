@@ -40,6 +40,10 @@ class FirstBlankFragment : Fragment() {
         // Inflate the layout for this fragment
         _binding = FragmentFirstBlankBinding.inflate(layoutInflater)
 
+        binding.savebutton.setOnClickListener {
+
+        }
+
         return binding.root
     }
 
