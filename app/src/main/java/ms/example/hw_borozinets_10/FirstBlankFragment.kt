@@ -39,16 +39,24 @@ class FirstBlankFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         _binding = FragmentFirstBlankBinding.inflate(layoutInflater)
+        return binding.root
+    }
 
-
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         binding.savebutton.setOnClickListener {
-          //  repository.saveText(binding.vvod.text.toString())
+            //repository.saveText(binding.vvod.text.toString())
 
             binding.textpole.text = binding.vvod.text.toString()
 
         }
 
-        return binding.root
+        binding.clearbutton.setOnClickListener {
+            //repository.clearText()
+            binding.vvod.text = null
+            binding.textpole.text = binding.vvod.text.toString()
+
+        }
     }
 
     companion object {
