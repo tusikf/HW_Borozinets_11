@@ -1,5 +1,6 @@
 package ms.example.hw_borozinets_10
 
+import android.content.SharedPreferences
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -12,6 +13,12 @@ import ms.example.hw_borozinets_10.databinding.FragmentFirstBlankBinding
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
 private val repository = Repository()
+
+//private val PREF_NAME = "preference_name"
+//private   val SHARED_PREF_KEY = "shared_pref_key"
+//private   lateinit var prefs: SharedPreferences
+//private    var editor: SharedPreferences.Editor = prefs.edit()
+
 /**
  * A simple [Fragment] subclass.
  * Use the [FirstBlankFragment.newInstance] factory method to
@@ -25,12 +32,15 @@ class FirstBlankFragment : Fragment() {
     private var _binding: FragmentFirstBlankBinding? = null
     private val binding get() = _binding!!
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         arguments?.let {
             param1 = it.getString(ARG_PARAM1)
             param2 = it.getString(ARG_PARAM2)
         }
+
     }
 
     override fun onCreateView(
@@ -40,15 +50,27 @@ class FirstBlankFragment : Fragment() {
         // Inflate the layout for this fragment
         _binding = FragmentFirstBlankBinding.inflate(layoutInflater)
 
+        return binding.root
+
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        //prefs = getSharedPreferences(PREF_NAME, 0)
+        super.onViewCreated(view, savedInstanceState)
 
         binding.savebutton.setOnClickListener {
-          //  repository.saveText(binding.vvod.text.toString())
 
             binding.textpole.text = binding.vvod.text.toString()
 
+            repository.saveText(binding.vvod.text.toString())
         }
 
-        return binding.root
+        binding.clearbutton.setOnClickListener {
+            //repository.clearText()
+            binding.vvod.text = null
+            binding.textpole.text = binding.vvod.text.toString()
+
+        }
     }
 
     companion object {

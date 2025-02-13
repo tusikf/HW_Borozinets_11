@@ -1,5 +1,6 @@
 package ms.example.hw_borozinets_10
 
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.text.TextUtils.replace
 import androidx.activity.enableEdgeToEdge
@@ -11,6 +12,11 @@ import androidx.fragment.app.replace
 
 
 class MainActivity : AppCompatActivity() {
+//    val PREF_NAME = "preference_name"
+//    val SHARED_PREF_KEY = "shared_pref_key"
+//    lateinit var prefs: SharedPreferences
+//    var editor: SharedPreferences.Editor = prefs.edit()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -24,6 +30,9 @@ class MainActivity : AppCompatActivity() {
             replace<FirstBlankFragment>(R.id.fragmentinactivity)
             addToBackStack(FirstBlankFragment::class.java.simpleName)
         }
+
+        //prefs = getSharedPreferences(PREF_NAME, 0)
+
 
     }
 }
