@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.SharedPreferences
 import android.util.Log
 
+
 private const val PREF_NAME = "preference_name"
 private const val SHARED_PREF_KEY = "shared_pref_key"
 private lateinit var prefs:SharedPreferences
@@ -11,7 +12,13 @@ private  var editor: SharedPreferences.Editor = prefs.edit()
 private lateinit var localValue:String
 
 class Repository {
-    prefs = getSharedPreferences(PREF_NAME, 0)
+    val prefs = getSharedPreferences(PREF_NAME, 0)
+
+    private fun getSharedPreferences(prefName: String, i: Int): Any {
+
+        return SharedPreferences(prefName, i)
+    }
+
     fun getText(context: Context): String {
         return when {
             getDataFromLocalVariable()!=null -> getDataFromLocalVariable()!!
@@ -21,9 +28,9 @@ class Repository {
     }
 
     fun saveText(text:String) {
-        prefs = getSharedPreferences(PREF_NAME, 0)
+        //val prefs = getSharedPreferences(PREF_NAME, 0)
 
-        prefs.edit().putString(SHARED_PREF_KEY, text).apply()
+        //prefs.edit().putString(SHARED_PREF_KEY, text).apply()
 
         editor.putString(SHARED_PREF_KEY, text.toString())
         editor.apply()
